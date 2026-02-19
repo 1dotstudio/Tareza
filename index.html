@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tereza | Order</title>
+    <title>Tereza | Order Now</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --brand-yellow: #EBB741; 
             --brand-dark: #1A1A1B;   
-            --wolt-blue: #00c2e8;
-            --haat-purple: #662d91;
             --white: #ffffff;
         }
 
@@ -29,6 +27,7 @@
             justify-content: center;
             min-height: 100vh;
             padding: 20px;
+            color: var(--brand-dark);
         }
 
         .container {
@@ -37,38 +36,39 @@
             text-align: center;
         }
 
-        /* תיקון הלוגו בראש הדף */
+        /* עיצוב הלוגו הראשי - תיקון החיתוך */
         .logo-wrapper {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             background-color: var(--white);
             border-radius: 50%;
-            margin: 0 auto 30px auto;
+            margin: 0 auto 40px auto;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            overflow: hidden; /* מבטיח שהתמונה לא תצא מהעיגול */
+            overflow: hidden;
+            border: 4px solid var(--white);
         }
 
         .logo-wrapper img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* גורם לצהוב של הלוגו למלא את העיגול הלבן */
+            object-fit: cover; /* גורם לצהוב של התמונה למלא את העיגול */
         }
 
         h1 {
-            font-size: 1.4rem;
-            margin-bottom: 40px;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
             font-weight: 700;
-            color: var(--brand-dark);
         }
 
+        /* גריד האפליקציות */
         .apps-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
-            padding: 0 10px;
+            padding: 0 15px;
         }
 
         .app-button {
@@ -77,53 +77,59 @@
             align-items: center;
             text-decoration: none;
             color: var(--brand-dark);
-            transition: transform 0.2s;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .icon-box {
             width: 100%;
             aspect-ratio: 1/1;
             background-color: var(--white);
-            border-radius: 22%;
+            border-radius: 22%; /* סגנון iOS */
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
             margin-bottom: 12px;
-            border: 1px solid rgba(0,0,0,0.05);
+            overflow: hidden;
         }
 
-        /* עיצוב הלוגואים הפנימיים כטקסט מעוצב כדי שלא יישברו */
-        .wolt-style { color: var(--wolt-blue); font-weight: 900; font-size: 1.4rem; }
-        .haat-style { color: var(--haat-purple); font-weight: 900; font-size: 1.4rem; }
+        .icon-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* מבטיח שהלוגואים ימלאו את הריבוע כמו אפליקציה אמיתית */
+        }
 
         .app-label {
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 700;
         }
 
+        /* פידבק ללחיצה */
         .app-button:active {
             transform: scale(0.92);
         }
 
         footer {
             margin-top: 60px;
-            color: var(--brand-dark);
         }
 
         .social-icon {
             font-size: 2.2rem;
             color: var(--brand-dark);
             text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .social-icon:hover {
+            opacity: 0.7;
         }
 
         .credit {
             margin-top: 20px;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             opacity: 0.8;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
@@ -131,25 +137,27 @@
 
     <div class="container">
         <div class="logo-wrapper">
-            <img src="logo.png" alt="Tereza"> 
+            <img src="logo.png" alt="Tereza Pizzeria"> 
         </div>
 
         <h1>איך תרצו להזמין?</h1>
 
         <div class="apps-grid">
+            
             <a href="https://wolt.com/he/isr/haifa/restaurant/tereza-haifa" class="app-button" target="_blank">
                 <div class="icon-box">
-                    <span class="wolt-style">Wolt</span>
+                    <img src="wolt.png" alt="Wolt">
                 </div>
                 <span class="app-label">Wolt</span>
             </a>
 
             <a href="https://haat.onelink.me/3ap7/m0a125bp" class="app-button" target="_blank">
                 <div class="icon-box">
-                    <span class="haat-style">Haat</span>
+                    <img src="haat.png" alt="Haat">
                 </div>
                 <span class="app-label">Haat</span>
             </a>
+
         </div>
 
         <footer>
