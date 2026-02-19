@@ -1,71 +1,164 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Icons</title>
-  <style>
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:#f5f5f5;
-    }
-    .wrap{ padding:24px; }
-    .icon-row{
-      display:flex;
-      gap:12px;
-      align-items:center;
-    }
-    .icon-circle{
-      width:64px;
-      height:64px;
-      border-radius:999px;
-      border:3px solid #fff;                 /* קונטור לבן */
-      box-shadow:0 6px 14px rgba(0,0,0,.18); /* הצללה קלה */
-      overflow:hidden;                        /* מכניס את התמונה לתוך העיגול */
-      background:#fff;                        /* טוב לתמונות עם שקיפות */
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-decoration:none;
-    }
-    .icon-circle img{
-      width:100%;
-      height:100%;
-      object-fit:cover;     /* ממלא את העיגול יפה */
-      object-position:center;
-      display:block;
-    }
-    .icon-circle:hover{
-      transform: translateY(-1px);
-      box-shadow:0 10px 18px rgba(0,0,0,.22);
-      transition: .18s ease;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tereza | Order</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --brand-yellow: #EBB741; 
+            --brand-dark: #1A1A1B;   
+            --wolt-blue: #00c2e8;
+            --haat-purple: #662d91;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--brand-yellow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* תיקון הלוגו בראש הדף */
+        .logo-wrapper {
+            width: 120px;
+            height: 120px;
+            background-color: var(--white);
+            border-radius: 50%;
+            margin: 0 auto 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            overflow: hidden; /* מבטיח שהתמונה לא תצא מהעיגול */
+        }
+
+        .logo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* גורם לצהוב של הלוגו למלא את העיגול הלבן */
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+            color: var(--brand-dark);
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            padding: 0 10px;
+        }
+
+        .app-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--brand-dark);
+            transition: transform 0.2s;
+        }
+
+        .icon-box {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background-color: var(--white);
+            border-radius: 22%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-bottom: 12px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* עיצוב הלוגואים הפנימיים כטקסט מעוצב כדי שלא יישברו */
+        .wolt-style { color: var(--wolt-blue); font-weight: 900; font-size: 1.4rem; }
+        .haat-style { color: var(--haat-purple); font-weight: 900; font-size: 1.4rem; }
+
+        .app-label {
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .app-button:active {
+            transform: scale(0.92);
+        }
+
+        footer {
+            margin-top: 60px;
+            color: var(--brand-dark);
+        }
+
+        .social-icon {
+            font-size: 2.2rem;
+            color: var(--brand-dark);
+            text-decoration: none;
+        }
+
+        .credit {
+            margin-top: 20px;
+            font-size: 0.7rem;
+            opacity: 0.8;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- קבצים/שמות חייבים להיות בדיוק:
-       assets/haat.png
-       assets/logo.png
-       assets/wolt.png
-  -->
-  <section class="wrap">
-    <div class="icon-row">
-      <a class="icon-circle" href="#" aria-label="Haat">
-        <img src="assets/haat.png" alt="haat" />
-      </a>
+    <div class="container">
+        <div class="logo-wrapper">
+            <img src="logo.png" alt="Tereza"> 
+        </div>
 
-      <a class="icon-circle" href="#" aria-label="Logo">
-        <img src="assets/logo.png" alt="logo" />
-      </a>
+        <h1>איך תרצו להזמין?</h1>
 
-      <a class="icon-circle" href="#" aria-label="Wolt">
-        <img src="assets/wolt.png" alt="wolt" />
-      </a>
+        <div class="apps-grid">
+            <a href="https://wolt.com/he/isr/haifa/restaurant/tereza-haifa" class="app-button" target="_blank">
+                <div class="icon-box">
+                    <span class="wolt-style">Wolt</span>
+                </div>
+                <span class="app-label">Wolt</span>
+            </a>
+
+            <a href="https://haat.onelink.me/3ap7/m0a125bp" class="app-button" target="_blank">
+                <div class="icon-box">
+                    <span class="haat-style">Haat</span>
+                </div>
+                <span class="app-label">Haat</span>
+            </a>
+        </div>
+
+        <footer>
+            <a href="https://www.instagram.com/tarezapizza/" class="social-icon" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <p class="credit">Creative by 1dot Studio</p>
+        </footer>
     </div>
-  </section>
 
 </body>
 </html>
