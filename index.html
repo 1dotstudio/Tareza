@@ -1,162 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tereza | Order Now</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --brand-yellow: #EBB741; 
-            --brand-dark: #1A1A1B;   
-            --white: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-        }
-
-        body {
-            background-color: var(--brand-yellow);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-            color: var(--brand-dark);
-        }
-
-        .container {
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        .logo-wrapper {
-            width: 130px;
-            height: 130px;
-            background-color: var(--white);
-            border-radius: 50%;
-            margin: 0 auto 40px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .logo-wrapper img {
-            width: 80%;
-            height: auto;
-        }
-
-        h1 {
-            font-size: 1.4rem;
-            margin-bottom: 30px;
-            font-weight: 700;
-        }
-
-        /* Grid Layout */
-        .apps-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            padding: 0 20px;
-        }
-
-        .app-button {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: var(--brand-dark);
-            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .icon-box {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background-color: var(--white);
-            border-radius: 22%; /* סגנון אייפון */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-            margin-bottom: 10px;
-            border: 1px solid rgba(0,0,0,0.05);
-            overflow: hidden;
-        }
-
-        .icon-box img {
-            width: 65%;
-            height: auto;
-            object-fit: contain;
-        }
-
-        .app-label {
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        /* Hover & Interaction */
-        .app-button:active {
-            transform: scale(0.92);
-        }
-
-        footer {
-            margin-top: 60px;
-        }
-
-        .social-icon {
-            font-size: 2rem;
-            color: var(--brand-dark);
-            text-decoration: none;
-        }
-
-        .credit {
-            margin-top: 20px;
-            font-size: 0.7rem;
-            opacity: 0.8;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Icons</title>
+  <style>
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:#f5f5f5;
+    }
+    .wrap{ padding:24px; }
+    .icon-row{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .icon-circle{
+      width:64px;
+      height:64px;
+      border-radius:999px;
+      border:3px solid #fff;                 /* קונטור לבן */
+      box-shadow:0 6px 14px rgba(0,0,0,.18); /* הצללה קלה */
+      overflow:hidden;                        /* מכניס את התמונה לתוך העיגול */
+      background:#fff;                        /* טוב לתמונות עם שקיפות */
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+    }
+    .icon-circle img{
+      width:100%;
+      height:100%;
+      object-fit:cover;     /* ממלא את העיגול יפה */
+      object-position:center;
+      display:block;
+    }
+    .icon-circle:hover{
+      transform: translateY(-1px);
+      box-shadow:0 10px 18px rgba(0,0,0,.22);
+      transition: .18s ease;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="logo-wrapper">
-            <img src="logo.png" alt="Tereza Logo"> 
-        </div>
+  <!-- קבצים/שמות חייבים להיות בדיוק:
+       assets/haat.png
+       assets/logo.png
+       assets/wolt.png
+  -->
+  <section class="wrap">
+    <div class="icon-row">
+      <a class="icon-circle" href="#" aria-label="Haat">
+        <img src="assets/haat.png" alt="haat" />
+      </a>
 
-        <h1>איך תרצו להזמין?</h1>
+      <a class="icon-circle" href="#" aria-label="Logo">
+        <img src="assets/logo.png" alt="logo" />
+      </a>
 
-        <div class="apps-grid">
-            <a href="https://wolt.com/he/isr/haifa/restaurant/tereza-haifa" class="app-button" target="_blank">
-                <div class="icon-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Wolt_logo.svg/1024px-Wolt_logo.svg.png" alt="Wolt">
-                </div>
-                <span class="app-label">Wolt</span>
-            </a>
-
-            <a href="https://haat.onelink.me/3ap7/m0a125bp" class="app-button" target="_blank">
-                <div class="icon-box">
-                    <img src="https://www.haat.delivery/assets/images/logo.png" alt="Haat" style="width: 80%;">
-                </div>
-                <span class="app-label">Haat</span>
-            </a>
-        </div>
-
-        <footer>
-            <a href="https://www.instagram.com/tarezapizza/" class="social-icon" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <p class="credit">Creative by 1dot Studio</p>
-        </footer>
+      <a class="icon-circle" href="#" aria-label="Wolt">
+        <img src="assets/wolt.png" alt="wolt" />
+      </a>
     </div>
+  </section>
 
 </body>
 </html>
