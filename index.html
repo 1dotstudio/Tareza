@@ -10,6 +10,7 @@
             --brand-yellow: #EBB741; 
             --brand-dark: #1A1A1B;   
             --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.15);
         }
 
         * {
@@ -36,7 +37,7 @@
             text-align: center;
         }
 
-        /* עיצוב הלוגו הראשי - תיקון החיתוך */
+        /* לוגו עם קונטור לבן כפול והצללה */
         .logo-wrapper {
             width: 140px;
             height: 140px;
@@ -46,24 +47,25 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
             overflow: hidden;
-            border: 4px solid var(--white);
+            box-shadow: 0 10px 25px var(--shadow);
+            border: 6px solid var(--white); /* הקונטור הלבן שביקשת */
+            outline: 2px solid var(--white); /* שכבה נוספת למראה יוקרתי */
         }
 
         .logo-wrapper img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* גורם לצהוב של התמונה למלא את העיגול */
+            object-fit: cover;
         }
 
         h1 {
             font-size: 1.5rem;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        /* גריד האפליקציות */
         .apps-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -77,26 +79,28 @@
             align-items: center;
             text-decoration: none;
             color: var(--brand-dark);
-            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s ease;
         }
 
+        /* אייקון אפליקציה עם הצללה */
         .icon-box {
             width: 100%;
             aspect-ratio: 1/1;
             background-color: var(--white);
-            border-radius: 22%; /* סגנון iOS */
+            border-radius: 22%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 20px var(--shadow);
             margin-bottom: 12px;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
 
         .icon-box img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* מבטיח שהלוגואים ימלאו את הריבוע כמו אפליקציה אמיתית */
+            object-fit: cover;
         }
 
         .app-label {
@@ -104,9 +108,20 @@
             font-weight: 700;
         }
 
-        /* פידבק ללחיצה */
+        /* Hover Effects */
+        @media (hover: hover) {
+            .app-button:hover .icon-box {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            }
+            
+            .app-button:hover .app-label {
+                opacity: 0.8;
+            }
+        }
+
         .app-button:active {
-            transform: scale(0.92);
+            transform: scale(0.95);
         }
 
         footer {
@@ -117,15 +132,16 @@
             font-size: 2.2rem;
             color: var(--brand-dark);
             text-decoration: none;
-            transition: opacity 0.2s;
+            transition: transform 0.2s;
+            display: inline-block;
         }
 
         .social-icon:hover {
-            opacity: 0.7;
+            transform: scale(1.1);
         }
 
         .credit {
-            margin-top: 20px;
+            margin-top: 25px;
             font-size: 0.75rem;
             opacity: 0.8;
             font-weight: 600;
