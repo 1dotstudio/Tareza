@@ -8,7 +8,7 @@
       gtag('js', new Date());
       gtag('config', 'G-DWFRGZF8YM');
 
-      // פונקציה ייעודית למעקב אחרי קליקים
+      // פונקציה ייעודית למעקב אחרי קליקים על כפתורים
       function trackButtonClick(buttonName) {
           gtag('event', 'click_button', {
               'button_name': buttonName
@@ -21,47 +21,199 @@
     <title>Tereza | Order Now</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --brand-yellow: #EBB741; --brand-dark: #1A1A1B; --white: #ffffff; --shadow: rgba(0, 0, 0, 0.2); }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--brand-yellow); display: flex; flex-direction: column; align-items: center; min-height: 100vh; color: var(--brand-dark); }
-        .cover-wrapper { width: 100%; height: 220px; overflow: hidden; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .cover-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-        .container { width: 100%; max-width: 400px; text-align: center; position: relative; margin-top: -70px; padding: 0 20px 40px 20px; }
-        .logo-wrapper { width: 130px; height: 130px; background-color: var(--white); border-radius: 50%; margin: 0 auto 30px auto; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 10px 25px var(--shadow); border: 5px solid var(--white); outline: 2px solid var(--white); z-index: 2; }
-        .logo-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-        h1 { font-size: 1.5rem; margin-bottom: 35px; font-weight: 700; }
-        .apps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .app-button { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--brand-dark); transition: all 0.3s ease; }
-        .icon-box { width: 100%; aspect-ratio: 1/1; background-color: var(--white); border-radius: 22%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px var(--shadow); margin-bottom: 12px; overflow: hidden; transition: all 0.3s ease; }
-        .icon-box img { width: 100%; height: 100%; object-fit: cover; }
-        .app-label { font-size: 1rem; font-weight: 700; }
-        @media (hover: hover) { .app-button:hover .icon-box { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25); } }
-        .app-button:active { transform: scale(0.95); }
-        footer { margin-top: auto; padding: 40px 0; }
-        .social-icon { font-size: 2.2rem; color: var(--brand-dark); text-decoration: none; transition: transform 0.2s; display: inline-block; }
-        .social-icon:hover { transform: scale(1.1); }
-        .credit { margin-top: 20px; font-size: 0.75rem; opacity: 0.8; font-weight: 600; letter-spacing: 0.5px; }
+        :root {
+            --brand-yellow: #EBB741; 
+            --brand-dark: #1A1A1B;   
+            --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--brand-yellow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--brand-dark);
+        }
+
+        /* Cover Section */
+        .cover-wrapper {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cover-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            margin-top: -70px; 
+            padding: 0 20px 40px 20px;
+        }
+
+        /* Logo with White Contour & Shadow */
+        .logo-wrapper {
+            width: 130px;
+            height: 130px;
+            background-color: var(--white);
+            border-radius: 50%;
+            margin: 0 auto 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 10px 25px var(--shadow);
+            border: 5px solid var(--white);
+            outline: 2px solid var(--white);
+            z-index: 2;
+        }
+
+        .logo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 35px;
+            font-weight: 700;
+        }
+
+        /* App Grid */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .app-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--brand-dark);
+            transition: all 0.3s ease;
+        }
+
+        .icon-box {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background-color: var(--white);
+            border-radius: 22%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px var(--shadow);
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .icon-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .app-label {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        /* Interactions */
+        @media (hover: hover) {
+            .app-button:hover .icon-box {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+            }
+        }
+
+        .app-button:active {
+            transform: scale(0.95);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 40px 0;
+        }
+
+        .social-icon {
+            font-size: 2.2rem;
+            color: var(--brand-dark);
+            text-decoration: none;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .credit {
+            margin-top: 20px;
+            font-size: 0.75rem;
+            opacity: 0.8;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
     </style>
 </head>
 <body>
-    <div class="cover-wrapper"><img src="cover.png" alt="Cover"></div>
+
+    <div class="cover-wrapper">
+        <img src="cover.png" alt="Tereza Cover">
+    </div>
+
     <div class="container">
-        <div class="logo-wrapper"><img src="logo.png" alt="Logo"></div>
+        <div class="logo-wrapper">
+            <img src="logo.png" alt="Tereza Pizzeria"> 
+        </div>
+
         <h1>איך תרצו להזמין?</h1>
+
         <div class="apps-grid">
+            
             <a href="https://wolt.com/he/isr/haifa/restaurant/tereza-haifa" class="app-button" target="_blank" onclick="trackButtonClick('Wolt')">
-                <div class="icon-box"><img src="wolt.png" alt="Wolt"></div>
+                <div class="icon-box">
+                    <img src="wolt.png" alt="Wolt">
+                </div>
                 <span class="app-label">Wolt</span>
             </a>
+
             <a href="https://haat.onelink.me/3ap7/m0a125bp" class="app-button" target="_blank" onclick="trackButtonClick('Haat')">
-                <div class="icon-box"><img src="haat.png" alt="Haat"></div>
+                <div class="icon-box">
+                    <img src="haat.png" alt="Haat">
+                </div>
                 <span class="app-label">Haat</span>
             </a>
+
         </div>
+
         <footer>
-            <a href="https://www.instagram.com/tarezapizza/" class="social-icon" target="_blank" onclick="trackButtonClick('Instagram')"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/tarezapizza/" class="social-icon" target="_blank" onclick="trackButtonClick('Instagram')">
+                <i class="fab fa-instagram"></i>
+            </a>
             <p class="credit">Creative by 1dot Studio</p>
         </footer>
     </div>
+
 </body>
 </html>
